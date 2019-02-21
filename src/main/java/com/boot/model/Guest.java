@@ -20,6 +20,13 @@ public class Guest {
 	
 	public Guest(){ }
 	
+	public Guest(long id, String first_name, String last_name) {
+		super();
+		this.id = id;
+		this.first_name = first_name;
+		this.last_name = last_name;
+	}
+	
 	public Guest(Long id, String first_name, String last_name, String address, String zipcode, String phone) {
 		super();
 		this.id = id;
@@ -34,9 +41,12 @@ public class Guest {
 //		return Boolean.parseBoolean((this.id).compareTo(g.getId()));
 //	}
 //	
-	
-	public boolean equals(Guest g) {
-		return this.id == g.id;
+
+
+	public boolean equals(Object o) {
+		if (this == o) {return true;}
+		Guest other = (Guest) o;
+		return this.id == other.id;
 	}
 	
 	public Long getId() {

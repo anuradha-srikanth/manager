@@ -44,7 +44,7 @@ public class GuestService {
 	public Guest update(Long id, Guest updatedGuest) {
 		Guest guest = guestRepository.getOne(id);
 		BeanUtils.copyProperties(updatedGuest, guest);
-		return guest;
+		return guestRepository.saveAndFlush(guest);
 	}
 	
 }
