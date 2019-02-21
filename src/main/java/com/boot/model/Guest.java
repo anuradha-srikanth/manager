@@ -30,6 +30,14 @@ public class Guest {
 		this.phone = phone;
 	}
 	
+//	public Boolean compareTo(Guest g) {
+//		return Boolean.parseBoolean((this.id).compareTo(g.getId()));
+//	}
+//	
+	
+	public boolean equals(Guest g) {
+		return this.id == g.id;
+	}
 	
 	public Long getId() {
 		return id;
