@@ -12,11 +12,13 @@ public class Guest {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
-	private @NonNull String first_name;
-	private @NonNull String last_name;
+	private String first_name;
+	private String last_name;
 	private String address;
 	private String zipcode;
-	private @NonNull String phone;
+	private String phone;
+	
+	public Guest(){ }
 	
 	public Guest(Long id, String first_name, String last_name, String address, String zipcode, String phone) {
 		super();
