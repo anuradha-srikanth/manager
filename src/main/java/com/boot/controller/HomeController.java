@@ -14,6 +14,7 @@ public class HomeController {
 		ArrayList<String> a = new ArrayList<String>();
 		a.add("ABC");
 		a.add("EFG");
+		a.add("EFG");
 		return a;
 	}
 
