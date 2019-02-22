@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.boot.model.Reservation;
-import com.boot.service.ReservationService;
+import com.boot.service.ReservationServiceImpl;
 
 @RestController
 @RequestMapping(value="/api/v1/reservation")
 public class ReservationController {
 	
 	@Autowired
-	private ReservationService reservationService;
+	private ReservationServiceImpl reservationService;
 
 	@RequestMapping(value = "/", method= RequestMethod.GET)
 	public List<Reservation> index(){

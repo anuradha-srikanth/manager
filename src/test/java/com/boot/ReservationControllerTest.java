@@ -19,7 +19,7 @@ import org.mockito.MockitoAnnotations;
 
 import com.boot.controller.ReservationController;
 import com.boot.model.Reservation;
-import com.boot.service.ReservationService;
+import com.boot.service.ReservationServiceImpl;
 
 public class ReservationControllerTest {
 	
@@ -27,7 +27,7 @@ public class ReservationControllerTest {
 	private ReservationController reservationController;
 	
 	@Mock
-	private ReservationService reservationService;
+	private ReservationServiceImpl reservationService;
 	
 	@Before
 	public void init() {
