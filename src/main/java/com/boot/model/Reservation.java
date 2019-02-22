@@ -18,6 +18,17 @@ public class Reservation {
 	private Long room_id;
 	private Long guest_id;
 	
+	
+	public Reservation() { } 
+	
+	public Reservation(Long id, Date checkInDate, Date checkOutDate, Long guest_id) {
+		super();
+		this.id = id;
+		this.checkInDate = checkInDate;
+		this.checkOutDate = checkOutDate;
+		this.guest_id = guest_id;
+	}
+	
 	public Reservation(Long id, Date reserveDate, Date checkInDate, Date checkOutDate, Long room_id, Long guest_id) {
 		super();
 		this.id = id;

@@ -1,4 +1,4 @@
-package com.boot.hotel.manager;
+package com.boot;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInAnyOrder;
@@ -33,17 +33,6 @@ public class GuestControllerTest {
 	}
 	
 	@Test
-	public void testGet() {
-		Guest guest = new Guest();
-		guest.setId(1L);
-		when(guestService.get(1l)).thenReturn(guest);
-		Guest sameGuest = guestService.get(1L);
-		assertEquals(1L, sameGuest.getId().longValue());
-		sameGuest.setId(2L);
-		assertTrue(1L != sameGuest.getId().longValue());
-	}
-	
-	@Test
 	public void testIndex() {
 		Guest g1 = new Guest();
 		g1.setId(1L);
@@ -66,15 +55,39 @@ public class GuestControllerTest {
 	}
 	
 	@Test
+	public void testGet() {
+		Guest guest = new Guest();
+		guest.setId(1L);
+		when(guestService.get(1l)).thenReturn(guest);
+		Guest sameGuest = guestService.get(1L);
+		assertEquals(1L, sameGuest.getId().longValue());
+		sameGuest.setId(2L);
+		assertTrue(1L != sameGuest.getId().longValue());
+	}
+
+	
+	@Test
 	public void testUpdate() {
 		Guest actualGuest = new Guest(1L, "John", "Smith");
 		Guest expectedGuest = new Guest(1L, "Jack", "Black");
 		when(guestService.update(1L, expectedGuest)).thenReturn(new Guest(1L, "Jack", "Black"));
 		Guest returnedGuest = guestService.update(1L, expectedGuest);
-		System.out.println(returnedGuest.getId());
-		System.out.println(actualGuest.getId());
+//		System.out.println(returnedGuest.getId());
+//		System.out.println(actualGuest.getId());
 		assertEquals(returnedGuest, actualGuest);
 		assertEquals(returnedGuest.getFirst_name(),expectedGuest.getFirst_name());
 		assertEquals(returnedGuest.getLast_name(), expectedGuest.getLast_name());
+	}
+	
+	@Test
+	public void testDelete() {
+		Guest actualGuest = new Guest();
+		actualGuest.setId(1L);
+		
+		when(guestService.deleteById(1L)).thenReturn(actualGuest).thenReturn(null);
+		Guest deletedGuest = guestService.deleteById(1L);
+		assertEquals(deletedGuest, actualGuest);
+		Guest nullGuest = guestService.deleteById(1L);
+		assertEquals(nullGuest, null);
 	}
 }

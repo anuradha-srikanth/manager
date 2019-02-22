@@ -37,7 +37,13 @@ public class GuestService {
 
 	public Guest deleteById(Long id) {
 		Guest guest = guestRepository.getOne(id);
-		guestRepository.deleteById(id);
+		if (guest != null) {
+			guestRepository.deleteById(id);
+		}
+		Guest removed = guestRepository.getOne(id);
+        if (removed != null) {
+            return null;
+        }
 		return guest;
 	}
 	
