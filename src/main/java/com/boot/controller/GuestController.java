@@ -45,7 +45,7 @@ public class GuestController {
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
 	public Guest delete(@PathVariable Long id) {
-		return guestService.deleteById(id);
+		return guestService.delete(id);
 	}
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.PUT)

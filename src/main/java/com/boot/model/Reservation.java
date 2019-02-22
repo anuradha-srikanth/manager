@@ -2,6 +2,7 @@ package com.boot.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,10 +13,20 @@ public class Reservation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
+	
+	@Column(name="RESERVEDATE")
 	private Date reserveDate;
+	
+	@Column(name="CHECKIN")
 	private Date checkInDate;
+	
+	@Column(name="CHECKOUT")
 	private Date checkOutDate;
+	
+	@Column(name="ROOMID")
 	private Long room_id;
+	
+	@Column(name="GUESTID")
 	private Long guest_id;
 	
 	

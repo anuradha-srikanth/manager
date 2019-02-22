@@ -85,10 +85,10 @@ public class GuestControllerTest {
 		Guest actualGuest = new Guest();
 		actualGuest.setId(1L);
 		
-		when(guestService.deleteById(1L)).thenReturn(actualGuest).thenReturn(null);
-		Guest deletedGuest = guestService.deleteById(1L);
+		when(guestService.delete(1L)).thenReturn(actualGuest).thenReturn(null);
+		Guest deletedGuest = guestService.delete(1L);
 		assertEquals(deletedGuest, actualGuest);
-		Guest nullGuest = guestService.deleteById(1L);
+		Guest nullGuest = guestService.delete(1L);
 		assertEquals(nullGuest, null);
 	}
 }
