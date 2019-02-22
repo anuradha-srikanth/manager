@@ -52,7 +52,12 @@ public class ReservationControllerTest {
 		r2dup.setId(2L);
 		Reservation r3dup = new Reservation();
 		r3dup.setId(3L);
-		
+//		System.out.println(expectedReservations.get(0).getId());
+//		System.out.println(expectedReservations.get(1).getId());
+//		System.out.println(expectedReservations.get(2).getId());
+//		System.out.println(r1dup.getId());
+//		System.out.println(r2dup.getId());
+//		System.out.println(r3dup.getId());
 		assertThat(expectedReservations, containsInAnyOrder(r3dup, r1dup, r2dup));
 	}
 	

@@ -6,10 +6,12 @@ import javax.persistence.EntityNotFoundException;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.boot.model.Reservation;
 import com.boot.repository.ReservationRepository;
 
+@Service
 public class ReservationService {
 	
 	@Autowired

@@ -39,6 +39,14 @@ public class Reservation {
 		this.guest_id = guest_id;
 	}
 	
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		Reservation other = (Reservation) o;
+		return this.id == other.id;
+	}
+	
 	public Long getId() {
 		return id;
 	}
