@@ -4,16 +4,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import org.springframework.lang.NonNull;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Guest {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
+
+	@NotNull
+	@Size(min=3, max=15, message="First Name cannot be empty")
 	private String first_name;
+	
+	@NotNull
+	@Size(min=3, max=15)
 	private String last_name;
+	
 	private String address;
 	private String zipcode;
 	private String phone;

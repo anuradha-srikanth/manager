@@ -2,7 +2,10 @@ package com.boot.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,7 +36,10 @@ public class GuestController {
 	}
 	
 	@RequestMapping(value="/", method=RequestMethod.POST)
-	public Guest create(@RequestBody Guest guest) {
+	public Guest create(@Valid @RequestBody Guest guest, Errors errors) {
+		if (errors.hasErrors()) {
+			return null;
+		}
 		return guestService.create(guest);
 	}
 	

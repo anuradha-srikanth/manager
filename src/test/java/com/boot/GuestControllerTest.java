@@ -58,6 +58,7 @@ public class GuestControllerTest {
 	public void testGet() {
 		Guest guest = new Guest();
 		guest.setId(1L);
+		System.out.println(guest.getFirst_name());
 		when(guestService.get(1l)).thenReturn(guest);
 		Guest sameGuest = guestService.get(1L);
 		assertEquals(1L, sameGuest.getId().longValue());
