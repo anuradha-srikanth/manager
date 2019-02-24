@@ -26,6 +26,7 @@ public class Reservation {
 	@Column(name="ROOMID")
 	private Long room_id;
 	
+	
 	@Column(name="GUESTID")
 	private Long guest_id;
 	

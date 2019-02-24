@@ -5,8 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.Email;
 
 @Entity
 public class Guest {
@@ -14,18 +13,20 @@ public class Guest {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
 
-	@NotEmpty
 	@Column(name="FIRSTNAME")
-	@Size(min=3, max=15, message="First Name cannot be empty")
 	private String first_name;
-	
-	@NotEmpty
+
 	@Column(name="LASTNAME")
-	@Size(min=3, max=15)
 	private String last_name;
 	
 	@Column(name="ADDRESS")
 	private String address;
+	
+	@Column(name="CITY")
+	private String city;
+	
+	@Column(name="STATE")
+	private String state;
 	
 	@Column(name="ZIP")
 	private String zipcode;
@@ -33,9 +34,13 @@ public class Guest {
 	@Column(name="PHONE")
 	private String phone;
 	
-	public Guest(){ }
+	@Column(name="EMAIL")
+	@Email
+	private String email;
 	
-	public Guest(long id, String first_name, String last_name) {
+	protected Guest(){ }
+	
+	protected Guest(long id, String first_name, String last_name) {
 		super();
 		this.id = id;
 		this.first_name = first_name;
@@ -100,7 +105,5 @@ public class Guest {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-
-	
 
 }

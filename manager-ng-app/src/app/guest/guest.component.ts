@@ -7,13 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GuestComponent implements OnInit {
   model: GuestViewModel = {
-    firstname: '',
-    last_name: '';
-    address: '';
-    city: '';
-    state: '';
-    zip: '';
-    phone: '';
+    first_name: '',
+    last_name: '',
+    address1: '',
+    address2: '',
+    city: '',
+    state: '',
+    zip: '',
+    phone: '',
+    email: ''
   };
 
   constructor() { }
@@ -21,15 +23,20 @@ export class GuestComponent implements OnInit {
   ngOnInit() {
   }
 
+  sendGuestForm(): void{
+    alert(this.model.first_name)
+  }
 }
 
 
 export interface GuestViewModel{
   first_name:string;
   last_name: string;
-  address: string;
+  address1: string;
+  address2: string;
   city: string;
   state: string;
   zip: string;
   phone: string;
+  email: string;
 }
