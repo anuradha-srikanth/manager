@@ -15,7 +15,7 @@ public class GuestViewModel {
 	@Size(min=3, max=15, message="First Name cannot be empty")
 	private String first_name;
 	
-	@Size(min=3, max=15)
+	@Size(min=3, max=15,  message="First Name cannot be empty")
 	private String last_name;
 	
 	@NotEmpty

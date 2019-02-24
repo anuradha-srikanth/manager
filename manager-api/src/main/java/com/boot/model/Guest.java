@@ -38,9 +38,9 @@ public class Guest {
 	@Email
 	private String email;
 	
-	protected Guest(){ }
+	public Guest(){ }
 	
-	protected Guest(long id, String first_name, String last_name) {
+	public Guest(long id, String first_name, String last_name) {
 		super();
 		this.id = id;
 		this.first_name = first_name;
@@ -72,6 +72,7 @@ public class Guest {
 	public Long getId() {
 		return id;
 	}
+	
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -105,5 +106,5 @@ public class Guest {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-
+	
 }

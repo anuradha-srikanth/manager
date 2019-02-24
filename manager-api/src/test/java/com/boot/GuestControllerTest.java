@@ -91,4 +91,9 @@ public class GuestControllerTest {
 		Guest nullGuest = guestService.delete(1L);
 		assertEquals(nullGuest, null);
 	}
+	
+	@Test
+	public void testPost() {
+		
+	}
 }
