@@ -1,0 +1,18 @@
+Controller
+1. handle incoming requests nad building the response
+2. business logic should not be handled here
+@Controller
+
+
+Repository
+1. The nouns of the system
+2. focused on persisting and interacting with the database
+3. Usually a one-to-one mapping with the Objects
+@Repository
+
+Service Tier 
+1. Verbs of our system
+2. Where all of the business logic of the applciation should reside
+3. Sometimes may have the same functions as Repository, but service tier should handle what to return in case of Null or if the constraints of the model are met, etc
+whereas the repository tier only gets this information.
+@Service
