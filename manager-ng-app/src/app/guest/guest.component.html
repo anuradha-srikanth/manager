@@ -2,7 +2,7 @@
   Guest Form
 </h1>
 
-<form (ngSubmit)="sendGuestForm()">
+<form name="form" #f="ngForm" (ngSubmit)="f.form.valid && sendGuestForm()">
   <!-- Name -->
   <div class="form-group">
     <div class="row">
@@ -12,18 +12,28 @@
                  class="form-control"
                  placeholder="First name"
                  name="first_name"
-                 [(ngModel)]="model.first_name">
-                 <!-- #name="ngModel"
+                 [(ngModel)]="model.first_name"
+                 #name="ngModel"
                  [ngClass]="{ 'is-invalid': f.submitted && name.invalid }"
-                 required /> -->
-
+                 required />
+          <!-- Input validation div -->
+          <div *ngIf="f.submitted && name.invalid">
+            <!-- Individual validation errors -->
+            <small class="invalid-input" *ngIf="name.errors?.required"> First Name is required </small>
+          </div>
         </div>
         <div class="col">
           <input type="text"
                  class="form-control"
                  placeholder="Last name"
                  name="last_name"
-                 [(ngModel)]="model.last_name">
+                 [(ngModel)]="model.last_name"
+                 #name="ngModel"
+                 [ngClass]="{'is-invalid': f.submitted && name.invalid }"
+                 required />
+          <div *ngIf="f.submitted && name.invalid">
+            <small class="invalid-input" *ngIf="name.errors?.required"> Last Name is required </small>
+          </div>
         </div>
       </div>
   </div>
@@ -36,7 +46,14 @@
            id="inputAddress"
            placeholder="1234 Main St"
            name="address1"
-           [(ngModel)]="model.address1">
+           [(ngModel)]="model.address1"
+           #address="ngModel"
+           [ngClass]="{'is-invalid': f.submitted && address.invalid }"
+           required minlength="10" />
+    <div *ngIf="f.submitted && address.invalid">
+      <small class="invalid-input" *ngIf="address.errors?.required"> Address is required </small>
+      <small class="invalid-input" *ngIf="address.errors?.minlength"> Address is too short (must be more than 10 characters) </small>
+    </div>
   </div>
 
   <!-- Address 2 -->
@@ -97,7 +114,15 @@
                class="form-control"
                id="inputEmail"
                name="email"
-               [(ngModel)]="model.email">
+               [(ngModel)]="model.email"
+               #email="ngModel"
+               [ngClass]="{'is-invalid': f.submitted && email.invalid }"
+               required email/>
+
+        <div *ngIf="f.submitted && email.invalid">
+          <small class="invalid-input" *ngIf="email.errors?.required"> Email is required </small>
+          <small class="invalid-input" *ngIf="email.errors?.email"> Field is not a valid email </small>
+        </div>
       </div>
 
     </div>
