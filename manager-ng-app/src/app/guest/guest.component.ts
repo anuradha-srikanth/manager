@@ -8,6 +8,7 @@ import { HttpClient } from "@angular/common/http"
   styleUrls: ['./guest.component.css']
 })
 export class GuestComponent implements OnInit {
+
   model: GuestViewModel = {
     first_name: '',
     last_name: '',
@@ -42,6 +43,8 @@ export class GuestComponent implements OnInit {
       }
     );
   }
+
+
 }
 
 

@@ -1,4 +1,4 @@
-package com.boot.controller.viewmodels;
+package com.boot.controller.viewmodel;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

@@ -20,5 +20,19 @@
 
 <div class="container">
   <app-navigation> </app-navigation>
-  <router-outlet></router-outlet>
+  <router-outlet> </router-outlet>
+  {{ title }}
+
+  <ul>
+    <li *ngFor="let element of guests">
+      {{ element.first_name }}, {{ element.last_name }}
+      <!-- {{ item }} -->
+    </li>
+  </ul>
+  <!-- {{ sample }} -->
+  <!-- {{ guests }} -->
+  <script>
+    alert({{ guests }})
+    </script>
+
 </div>
