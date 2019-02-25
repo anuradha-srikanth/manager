@@ -15,33 +15,33 @@ import com.boot.service.ReservationServiceImpl;
 
 @RestController
 @CrossOrigin
-@RequestMapping(value="/api/v1/reservation")
+@RequestMapping(value="/api/v1")
 public class ReservationController {
 	
 	@Autowired
 	private ReservationServiceImpl reservationService;
 
-	@RequestMapping(value = "/", method= RequestMethod.GET)
+	@RequestMapping(value = "/reservation", method= RequestMethod.GET)
 	public List<Reservation> index(){
 		return reservationService.index();
 	}
 	
-	@RequestMapping(value = "/{id}", method= RequestMethod.GET)
+	@RequestMapping(value = "/reservation/{id}", method= RequestMethod.GET)
 	public Reservation get(@PathVariable Long id){
 		return reservationService.get(id);
 	}
 	
-	@RequestMapping(value="/", method=RequestMethod.POST)
+	@RequestMapping(value="/reservation", method=RequestMethod.POST)
 	public Reservation create(@RequestBody Reservation reservation) {
 		return reservationService.create(reservation);
 	}
 	
-	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
+	@RequestMapping(value="/reservation/{id}", method=RequestMethod.DELETE)
 	public Reservation delete(@PathVariable Long id) {
 		return reservationService.deleteById(id);
 	}
 	
-	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
+	@RequestMapping(value="/reservation/{id}", method=RequestMethod.PUT)
 	public Reservation update(@PathVariable Long id, @RequestBody Reservation updatedReservation) {
 		return reservationService.update(id, updatedReservation);
 	}

@@ -20,7 +20,21 @@ export class ReservationComponent implements OnInit {
   ngOnInit() {
   }
 
-
+  sendReservationForm(): void {
+    // alert(this.model.first_name)
+    // The url of our backend guest api
+    let url = "http://localhost:8080/api/v1/reservation";
+    // Submit a post request to this url and send the model
+    // (that basically models what data the api accepts)
+    this.http.post(url, this.model).subscribe(
+      res => {
+        location.reload();
+      },
+      err => {
+        alert("An error has occurred while sending reservation");
+      }
+    );
+  }
 
 }
 
