@@ -19,7 +19,8 @@
           <!-- Input validation div -->
           <div *ngIf="f.submitted && name.invalid">
             <!-- Individual validation errors -->
-            <small class="invalid-input" *ngIf="name.errors?.required"> First Name is required </small>
+            <small
+             *ngIf="name.errors?.required"> First Name is required </small>
           </div>
         </div>
         <div class="col">

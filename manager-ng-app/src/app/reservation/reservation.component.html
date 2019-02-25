@@ -1,3 +1,88 @@
-<p>
-  reservations works!
-</p>
+<h1>
+  Reservation Form
+</h1>
+
+<!-- <script>
+$('.datepicker').datepicker({
+    format: 'mm/dd/yyyy',
+    startDate: '-3d'
+});
+</script> -->
+
+<script>
+   angular.module('dateInputExample', [])
+     .controller('DateController', ['$scope', function($scope) {
+       $scope.example = {
+         value: new Date(2013, 9, 22)
+       };
+     }]);
+</script>
+<!-- <form name="myForm" ng-controller="DateController as dateCtrl">
+   <label for="exampleInput">Pick a date in 2013:</label>
+   <input type="date" id="exampleInput" name="input" ng-model="example.value"
+       placeholder="yyyy-MM-dd" min="2013-01-01" max="2013-12-31" required />
+   <div role="alert">
+     <span class="error" ng-show="myForm.input.$error.required">
+         Required!</span>
+     <span class="error" ng-show="myForm.input.$error.date">
+         Not a valid date!</span>
+    </div>
+    <p>value = {{example.value | date: "yyyy-MM-dd"}}</p><br/>
+    <p>myForm.input.$valid = {{myForm.input.$valid}}</p><br/>
+    <p>myForm.input.$error = {{myForm.input.$error}}</p><br/>
+    <p>myForm.$valid = {{myForm.$valid}}</p><br/>
+    <p>myForm.$error.required = {{!!myForm.$error.required}}</p><br/>
+</form> -->
+
+
+
+<form name="form" #f="ngForm" (ngSubmit)="f.form.valid && sendReservationForm()">
+
+ <div class="form-group">
+   <div class="row">
+       <div class="col">
+           <label for="checkinInput">Check-In Date</label>
+           <input type="date"
+                  name="checkin"
+                  class="form-control"
+                  id=""
+                  aria-describedby="emailHelp"
+                  placeholder="yyyy-MM-dd"
+                  [(ngModel)]="model.checkin"
+                  #date1="ngModel"
+                  [ngClass]="{ 'is-invalid': f.submitted && date1.invalid }"
+                  required
+                  >
+            <div class="invalid-input" *ngIf="f.submitted && date1.invalid">
+              <small *ngIf="date1.errors?.required"> Date is required </small>
+            </div>
+        </div>
+  <div class="col">
+    <label for="checkoutInput">Check-Out Date</label>
+    <input type="date"
+           name="checkout"
+           class="form-control"
+           id=""
+           aria-describedby="emailHelp"
+           placeholder="yyyy-MM-dd"
+           [(ngModel)]="model.checkout"
+           #date2="ngModel"
+           [ngClass]="{ 'is-invalid': f.submitted && date2.invalid }"
+           required
+           >
+     <div class="invalid-input" *ngIf="f.submitted && date2.invalid">
+       <small *ngIf="date2.errors?.required"> Date is required </small>
+     </div>
+</div>
+</div>
+ </div>
+ <div class="form-group">
+   <label for="exampleInputPassword1">Password</label>
+   <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+ </div>
+ <div class="form-check">
+   <input type="checkbox" class="form-check-input" id="exampleCheck1">
+   <label class="form-check-label" for="exampleCheck1">Check me out</label>
+ </div>
+ <button type="submit" class="btn btn-primary">Submit</button>
+</form>
