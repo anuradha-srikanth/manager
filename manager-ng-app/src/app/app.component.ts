@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
-import { HttpClient } from "@angular/common/http"
-import { Guest } from "./model/guest"
+import { HttpClient } from "@angular/common/http";
+import { Guest } from "./model/guest";
+import { ApiService } from "./shared/api.service"
 
 @Component({
   selector: 'app-root',
@@ -35,7 +36,7 @@ export class AppComponent implements OnInit{
   //   }
   // ];
 
-  constructor(private http: HttpClient) {
+  constructor(private apiService: ApiService) {
 
   }
 
@@ -45,7 +46,7 @@ export class AppComponent implements OnInit{
 
   public getAllGuests(){
     let url = "http://localhost:8080/api/v1/guest";
-    this.http.get<Guest[]>(url).subscribe(
+    this.apiService.getAllGuests().subscribe(
       res => {
         this.guests = res
       },

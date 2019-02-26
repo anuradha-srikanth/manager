@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from "@angular/common/http"
+import { ApiService} from '../shared/api.service'
+// import { HttpClient } from "@angular/common/http"
 // declare var require: any
 
 @Component({
@@ -21,7 +22,7 @@ export class GuestComponent implements OnInit {
     email: ''
   };
 
-  constructor(private http: HttpClient) {
+  constructor(private apiService: ApiService) {
 
   }
 
@@ -29,12 +30,7 @@ export class GuestComponent implements OnInit {
   }
 
   sendGuestForm(): void{
-    // alert(this.model.first_name)
-    // The url of our backend guest api
-    let url = "http://localhost:8080/api/v1/guest";
-    // Submit a post request to this url and send the model
-    // (that basically models what data the api accepts)
-    this.http.post(url, this.model).subscribe(
+    this.apiService.postNewGuest(this.model).subscribe(
       res => {
         location.reload();
       },
