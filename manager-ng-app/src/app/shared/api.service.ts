@@ -12,7 +12,7 @@ export class ApiService {
   // The url of our backend guest api
   private BASE_URL = "http://localhost:8080/api/v1";
   private GET_GUESTS_URL = `${this.BASE_URL}/guest`;
-  private POST_GUEST_URL = "http://localhost:8080/api/v1/guest";
+  private POST_GUEST_URL = `${this.BASE_URL}/guest`;
 
   constructor(private http: HttpClient) { }
 

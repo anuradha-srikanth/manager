@@ -13,7 +13,7 @@ export class GuestComponent implements OnInit {
   model: GuestViewModel = {
     first_name: '',
     last_name: '',
-    address1: '',
+    address: '',
     address2: '',
     city: '',
     state: '',
@@ -30,6 +30,7 @@ export class GuestComponent implements OnInit {
   }
 
   sendGuestForm(): void{
+    // console.log(this.model);
     this.apiService.postNewGuest(this.model).subscribe(
       res => {
         location.reload();
@@ -39,15 +40,13 @@ export class GuestComponent implements OnInit {
       }
     );
   }
-
-
 }
 
 
 export interface GuestViewModel{
   first_name:string;
   last_name: string;
-  address1: string;
+  address: string;
   address2: string;
   city: string;
   state: string;
